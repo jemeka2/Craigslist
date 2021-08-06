@@ -21,11 +21,13 @@
                 <h5 class="card-title"th:inline="text">[[${jobs.title}]]</h5>
                 <p class="card-text" th:text="${jobs.description}"></p>
                 <h6 class="card-subtitle mb-2 text-muted" th:inline="text">Date: [[${jobs.postedDate}]] </h6>
-<!--                Current placeholder solution. If this is still here that means I could not find a better solution and had to brute force it and only works for the first user.-->
-                <div sec:authorize="hasRole('USER1')">
+<!--            Current placeholder solution. If this is still here that means I could not find a better solution and had to brute force it and only works for the first user.-->
+<!--            I wanted to do something like hasRole(USER + ${job.id}) thymeleaf wouldn't take it as a role-->
+                <div sec:authorize="hasRole('USER1') or hasRole('ADMIN')">
                     <a th:href="@{/delete/{id}(id=${jobs.id})}" class="btn btn-primary">Delete</a>
                     <a th:href="@{/update/{id}(id=${jobs.id})}" class="btn btn-primary">Update</a>
                 </div>
+                <a th:href="@{/detail/{id}(id=${jobs.id})}" class="btn btn-primary">Details</a>
 
             </div>
         </div>

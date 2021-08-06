@@ -120,6 +120,7 @@ public class Controller {
         return "home";
     }
 
+
     private void idSetter(Job job){
         idCounter += 1;
         job.setId(idCounter);
