@@ -16,8 +16,18 @@
     <p th:if="${message}">[[${message}]]</p>
 
     <form th:action="@{/login}" method="post">
-        <div><label>Username: <input type="text" name="username"/></label></div>
-        <div><label>Password: <input type="password" name="password"/></label></div>
+        <table class="table table-sm table-borderless">
+            <tbody>
+            <tr>
+                <th scope="row">Username</th>
+                <td><div><label><input type="text" placeholder="Username" name="username"/></label></div></td>
+            </tr>
+            <tr>
+                <th scope="row">Password</th>
+                <td><div><label><input type="password" placeholder="Password" name="password"/></label></div></td>
+            </tr>
+            </tbody>
+        </table>
         <div><input type="submit" value="sign in"/></div>
     </form>
 
